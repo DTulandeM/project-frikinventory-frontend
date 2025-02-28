@@ -1,0 +1,178 @@
+.card__statistic {
+  display: grid;
+  align-items: flex-start;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 17px;
+  column-gap: 20px;
+  margin: 20px 24px 20px 216px;
+  max-width: 1200px;
+  width: 100%;
+  max-height: 107px;
+  height: 100%;
+}
+
+.card__container {
+  max-width: 285px;
+  width: 100%;
+  max-height: 107px;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card__metric {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 110%;
+  text-align: center;
+  letter-spacing: 120%;
+  color: #080804;
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 16px 16px 0;
+}
+
+.card__title {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  text-align: center;
+  color: #2d2d2d;
+}
+
+.card__dropdown {
+  position: relative;
+}
+
+.card__dropdown-trigger {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.card__dropdown-trigger:hover {
+  background-color: #f3f3f2;
+}
+.card__dots {
+  color: #b3b9bc;
+  padding-top: 10px;
+  letter-spacing: 2px;
+  font-weight: normal;
+  line-height: 0;
+  text-align: center;
+}
+
+.card__dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 160px;
+  z-index: 10;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.card__dropdown-item {
+  padding: 8px 16px;
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  text-align: left;
+  color: #080804;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.card__dropdown-item:hover {
+  background-color: #f3f3f2;
+}
+
+.card__metrics-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  margin: 0 16px 16px;
+}
+
+.card__metrics-footer {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  max-width: 66px;
+  width: 100%;
+  gap: 2px;
+}
+
+.card__percentage-badge {
+  background-color: #f7fcd2;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 8px;
+  line-height: 130%;
+  text-align: center;
+}
+.card__percentage-badge.positive {
+  background-color: #feeed6;
+  color: #8d9e07;
+}
+
+.card__percentage-badge.negative {
+  background-color: #ffebed;
+  color: #fe3d54;
+}
+
+.card__trendup-icon {
+  width: 8.5px;
+  height: 8.5px;
+  filter: opacity(0.4);
+  color: #8d9e07;
+  margin-right: 4px;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.card__trenddown-icon {
+  width: 8.5px;
+  height: 8.5px;
+
+  color: #fe3d54;
+  margin-right: 4px;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.card__time-frame {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 130%;
+  text-align: center;
+  color: #a6a6a5;
+}

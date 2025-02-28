@@ -1,0 +1,14 @@
+body {
+  background-color: #f3f3f2;
+}
+
+.page {
+  font-family: "Figtree", Arial, Helvetica, sans-serif;
+  max-width: 1440px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f3f3f2;
+  margin: 0 auto;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
