@@ -5,6 +5,8 @@ import "../index.css";
 import SideMenu from "./SideMenu";
 import Products from "./Products";
 import Footer from "./footer";
+import api from "../utils/api";
+import { useEffect } from "react";
 const products = [
   {
     number: "",
@@ -66,7 +68,26 @@ function App() {
       initialTimeFrame: "last week",
     },
   ]);
-
+  const [products, setProducts] = useState([]);
+  const [currentUser, setCurrentUser] = useState([]);
+  useEffect(() => {
+    // api
+    //   .getProducts()
+    //   .then((data) => {
+    //     setProducts(data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    api
+      .getUserInfo()
+      .then((data) => {
+        setCurrentUser(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <>
       <div className="page">
