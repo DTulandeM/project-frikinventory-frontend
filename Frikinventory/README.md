@@ -15,4 +15,5 @@ Funcionalidades:
 
 Tecnologias empleadas son react, html, css, gitHub, javaScripts, nginx .
 
-s
+Seguimiento en trello, tambien se encontrara el diseño en figma.
+https://trello.com/b/pXPRKaVh/final-project-tripleten
