@@ -1,8 +1,18 @@
-# React + Vite
+# project-frikinventory-frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend application to manage the product inventory in a Friki Week startup.
 
-Currently, two official plugins are available:
+Con esta aplicación se busca manejar y monitorear el inventario de productos. En el alcance inicial solo cuenta con las funcionalidades mencionadas más adelante pero se espera poder continuar haciendole las mejoras que se encuentran en la paguina de incio.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Funcionalidades:
+
+1. Registrar usuario a través de usuario y contraseña.
+2. Inicio de Sección con usuario y contraseña registrada
+3. Agregar y editar productos.
+4. Eliminar productos
+5. Editar usuario nombre e imagen para mostrar
+6. conexión con API
+
+Tecnologias empleadas son react, html, css, gitHub, javaScripts, nginx .
+
+s
