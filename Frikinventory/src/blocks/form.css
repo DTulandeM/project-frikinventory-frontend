@@ -1,0 +1,236 @@
+.form {
+  display: flex;
+  position: fixed;
+  top: 195px;
+  right: calc(50% - 400px);
+  flex-direction: column;
+  align-items: center;
+  column-gap: 8px;
+  margin: 0 auto;
+  max-width: 610px;
+}
+
+.form__title {
+  color: #000000;
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  max-width: 330px;
+  width: 100%;
+  text-align: center;
+  align-self: center;
+  margin: 34px auto 24px;
+}
+
+.form__fieldset {
+  display: inline-block;
+  max-width: 720px;
+  width: 100%;
+  max-height: 730px;
+  margin: 0 auto;
+  border-style: none;
+  padding: 0;
+}
+
+.form__input {
+  display: block;
+  position: relative;
+  max-width: 358px;
+  width: 100%;
+  height: 26px;
+  margin: 10px auto 0;
+  border-style: none;
+  border-bottom: 1px solid #000000;
+  padding: 0;
+}
+
+.form__input-container {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.form__input-disabled {
+  display: block;
+  position: relative;
+  max-width: 358px;
+  width: 100%;
+  height: 26px;
+  margin: 10px auto 0;
+  border-style: none;
+  border-bottom: 1px solid #888888;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #888888;
+  cursor: not-allowed;
+}
+
+.form__button {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border-color: #ffd200;
+  background: #ffd200;
+  max-width: 358px;
+  height: 46px;
+  width: 100%;
+  margin: 48px auto 36px;
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #000;
+  cursor: pointer;
+  padding: 0;
+}
+
+.form__button:hover {
+  opacity: 70%;
+}
+
+.form__input_type_error {
+  border-bottom: 1px solid #f00;
+}
+
+.form__error-visible {
+  display: block;
+  position: absolute;
+  color: #ff0000;
+  margin-left: 35px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: justify;
+  max-width: 358px;
+}
+
+.form__button_disabled {
+  box-sizing: border-box;
+  opacity: 0.2;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.form__product-title {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 130%;
+  text-align: left;
+  color: #888888;
+  width: 100%;
+  margin: 0;
+}
+
+.form__input-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.form__input-half {
+  flex: 1;
+  min-width: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .form {
+    right: calc(50% - 300px);
+    max-width: 500px;
+  }
+
+  .form__title {
+    font-size: 22px;
+    line-height: 27px;
+  }
+
+  .form__input {
+    max-width: 320px;
+  }
+
+  .form__input-disabled {
+    max-width: 320px;
+  }
+
+  .form__button {
+    max-width: 320px;
+  }
+
+  .form__error-visible {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .form {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 150px;
+    max-width: 90%;
+  }
+
+  .form__title {
+    font-size: 20px;
+    line-height: 25px;
+    max-width: 100%;
+  }
+
+  .form__input {
+    max-width: 100%;
+  }
+
+  .form__input-disabled {
+    max-width: 100%;
+  }
+
+  .form__button {
+    max-width: 100%;
+  }
+
+  .form__input-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .form {
+    top: 120px;
+    padding: 0 16px;
+  }
+
+  .form__title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .form__input {
+    height: 24px;
+  }
+
+  .form__input-disabled {
+    height: 24px;
+  }
+
+  .form__button {
+    height: 42px;
+    font-size: 16px;
+  }
+
+  .form__error-visible {
+    font-size: 10px;
+    line-height: 13px;
+    margin-left: 10px;
+  }
+}

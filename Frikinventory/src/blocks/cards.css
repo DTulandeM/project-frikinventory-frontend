@@ -95,12 +95,13 @@
   font-family: "Figtree";
   font-style: normal;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 120%;
-  text-align: left;
+  text-align: right;
+  border: none;
   color: #080804;
   cursor: pointer;
-  transition: background-color 0.2s;
+  /* transition: background-color 0.2s; */
 }
 
 .card__dropdown-item:hover {
@@ -134,6 +135,8 @@
   font-size: 8px;
   line-height: 130%;
   text-align: center;
+  max-height: 35px;
+  height: 100%;
 }
 .card__percentage-badge.positive {
   background-color: #feeed6;
@@ -175,4 +178,28 @@
   line-height: 130%;
   text-align: center;
   color: #a6a6a5;
+}
+
+@media screen and (max-width: 768px) {
+  .card__statistic {
+    grid-template-columns: 1fr;
+    margin: 20px;
+    max-height: none;
+  }
+
+  .card__container {
+    max-width: 100%;
+  }
+
+  .card__statistic {
+    row-gap: 15px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .card__statistic {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 20px 24px 20px 100px;
+    max-height: none;
+  }
 }

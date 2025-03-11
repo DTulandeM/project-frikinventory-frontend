@@ -1,0 +1,226 @@
+.popup {
+  background-color: #fff;
+  display: none;
+  position: fixed;
+  top: 195px;
+  right: calc(50% - 300px);
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  width: 100%;
+  z-index: 10;
+  padding: 20px;
+}
+
+.popup-notification {
+  display: none;
+  position: fixed;
+  top: 90px;
+  right: calc(25% - 12.5vw);
+  left: calc(25% - 12.5vw);
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 530px;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  z-index: 20;
+}
+
+.popup-show {
+  display: flex;
+}
+
+.popup__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+}
+.popup__button-close {
+  position: relative;
+  bottom: 50px;
+  left: 720px;
+  background-color: rgba(0, 0, 0, 0.01);
+  background-image: url("../images/close-icon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  align-self: flex-end;
+  max-width: 40px;
+  height: 40px;
+  width: 100%;
+  border-style: none;
+  cursor: pointer;
+  z-index: 10;
+}
+.popup__button-close:hover {
+  opacity: 70%;
+}
+
+.popup-notification__button-close {
+  position: relative;
+  bottom: 40px;
+  left: 35px;
+  background-color: rgba(0, 0, 0, 0.01);
+  background-image: url("../images/close-icon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  align-self: flex-end;
+  max-width: 40px;
+  height: 40px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.popup__button-close:hover {
+  opacity: 70%;
+}
+
+.popup-notification__text {
+  position: relative;
+  color: #000000;
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  align-self: center;
+  text-align: center;
+  z-index: 10;
+}
+
+.popup-notification__image {
+  position: relative;
+  max-width: 120px;
+  max-height: 120px;
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  margin: 0;
+  background-color: #ffffff;
+  z-index: 10;
+}
+
+.popup-notification__button-close:hover {
+  opacity: 70%;
+}
+
+.product__popup-content {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product__top-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.product__edit-section {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.product__readonly-section {
+  width: 100%;
+  margin: 10px auto 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.popup__image-container,
+.popup__name-container {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 550px) {
+  .popup {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 320px;
+    padding: 10px;
+  }
+
+  .popup-notification {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 300px;
+    top: 80px;
+  }
+
+  .popup__button-close {
+    top: 10px;
+    right: calc(50% - 60px);
+    max-width: 30px;
+    height: 30px;
+  }
+
+  .popup-notification__button-close {
+    top: 10px;
+    right: calc(50% - 60px);
+    max-width: 30px;
+    height: 30px;
+  }
+
+  .popup-notification__text {
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .popup-notification__image {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .popup__image-container,
+  .popup__name-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .popup {
+    max-width: 280px;
+    padding: 8px;
+  }
+
+  .popup-notification {
+    max-width: 260px;
+  }
+
+  .popup-notification__text {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .popup-notification__image {
+    max-width: 80px;
+    max-height: 80px;
+  }
+
+  .popup__button-close,
+  .popup-notification__button-close {
+    max-width: 25px;
+    height: 25px;
+  }
+}

@@ -1,26 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import trendupIcon from "../images/TrendUp.png";
 import trenddownIcon from "../images/TrendDown.png";
 
-function Cards(cards) {
-  console.log(cards);
+function Cards({ card, products, updateStockCards }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [timeFrame, setTimeFrame] = useState(cards.initialTimeFrame);
+  const [timeFrame, setTimeFrame] = useState(
+    card.initialTimeFrame || "last week"
+  );
+
   const timeFrames = ["last week", "last month", "last year"];
-  const trendup = (
-    <img className="card__trendup-icon" src={trendupIcon} alt="Trend up" />
-  );
-  const trenddown = (
-    <img
-      className="card__trenddown-icon"
-      src={trenddownIcon}
-      alt="Trend down"
-    />
-  );
+
+  useEffect(() => {
+    updateStockCards(products, timeFrame);
+  }, [products, timeFrame]);
 
   function toggleDropdown() {
     setIsDropdownOpen(!isDropdownOpen);
   }
+
   function handleTimeFrameChange(period) {
     setTimeFrame(period);
     setIsDropdownOpen(false);
@@ -29,7 +26,7 @@ function Cards(cards) {
   return (
     <div className="card__container">
       <div className="card__header">
-        <h2 className="card__title">{cards.title}</h2>
+        <h2 className="card__title">{card.title}</h2>
         <div className="card__dropdown">
           <button className="card__dropdown-trigger" onClick={toggleDropdown}>
             <span className="card__dots">•••</span>
@@ -51,15 +48,24 @@ function Cards(cards) {
       </div>
 
       <div className="card__metrics-container">
-        <span className="card__metric">{cards.total}</span>
+        <span className="card__metric">{card.total}</span>
 
         <div className="card__metrics-footer">
           <div
             className={`card__percentage-badge ${
-              cards.percentage < 0 ? "negative" : "positive"
+              card.percentage <= 0 ? "negative" : "positive"
             }`}
           >
-            {cards.percentage < 0 ? trenddown : trendup} {cards.percentage}%
+            <img
+              className={
+                card.percentage <= 0
+                  ? "card__trenddown-icon"
+                  : "card__trendup-icon"
+              }
+              src={card.percentage <= 0 ? trenddownIcon : trendupIcon}
+              alt="Trend icon"
+            />
+            {card.percentage}%
           </div>
           <span className="card__time-frame">from {timeFrame}</span>
         </div>

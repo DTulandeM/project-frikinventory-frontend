@@ -2,21 +2,19 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import icon_Person from "../images/icon _person outline_.svg";
 import icon_Password from "../images/icon_lock.svg";
-import googleLogo from "../images/google-logo.png";
 
-function Singin({ onLogin }) {
+function Singup({ register }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
-    onLogin(email, password, rememberMe);
+    register(email, password);
   }
 
   return (
     <form className="home" noValidate>
-      <h1 className="home__title">USER LOGIN</h1>
+      <h1 className="home__title">REGISTRO DE USUARIOS</h1>
       <fieldset className="home__fieldset">
         <div className="home__input-field">
           <span className="home__input-icon">
@@ -48,43 +46,20 @@ function Singin({ onLogin }) {
             required
           />
         </div>
-        <div className="options-row">
-          <label className="remember-me">
-            <input
-              type="checkbox"
-              checked={rememberMe}
-              onChange={() => setRememberMe(!rememberMe)}
-            />
-            <span className="checkbox-custom"></span>
-            Remember me
-          </label>
-
-          <a href="#" className="forgot-password">
-            Forgot password?
-          </a>
-        </div>
 
         <button
-          name="btnLogin"
+          name="btnRegister"
           type="submit"
           className="home__button"
           onClick={handleSubmit}
         >
-          Login
-        </button>
-        <div className="divider">
-          <span>OR</span>
-        </div>
-
-        <button className="google-button">
-          <img src={googleLogo} alt="Google logo" className="google-icon" />
-          Continue with google
+          Registro
         </button>
 
         <span className="home__foot">
-          ¿Aún no eres miembro?{" "}
-          <Link className="home__link" to="/signup">
-            Regístrate aquí
+          ¿Eres miembro?{" "}
+          <Link className="home__link" to="/signin">
+            Inicia sección aquí
           </Link>
         </span>
       </fieldset>
@@ -92,4 +67,4 @@ function Singin({ onLogin }) {
   );
 }
 
-export default Singin;
+export default Singup;

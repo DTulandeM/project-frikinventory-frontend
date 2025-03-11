@@ -25,13 +25,86 @@ class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
+
+  editProduct(data) {
+    return fetch(`${this.baseUrl}/products/${data._id}`, {
+      method: "PUT",
+      headers: this.headers,
+      body: JSON.stringify({
+        id: data._id,
+        name: data.name,
+        price: data.price,
+        quantity: data.quantity,
+        buyCost: data.buyCost,
+        typeOfProduct: data.typeOfProduct,
+        articuleRef: data.articuleRef,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+  addNewProduct(data) {
+    return fetch(`${this.baseUrl}/products`, {
+      method: "POST",
+      headers: this.headers,
+      body: JSON.stringify({
+        image: data.image,
+        name: data.name,
+        price: data.price,
+        quantity: data.quantity,
+        buyCost: data.buyCost,
+        typeOfProduct: data.typeOfProduct,
+        articuleRef: data.articuleRef,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
+  removeProduct(productId) {
+    return fetch(`${this.baseUrl}/products/${productId}`, {
+      method: "DELETE",
+      headers: this.headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
+  editUser(data) {
+    return fetch(`${this.baseUrl}/users/me`, {
+      method: "PATCH",
+      headers: this.headers,
+      body: JSON.stringify({
+        name: data.name,
+        userImage: data.userImage,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
+  setAuthToken(token) {
+    this.headers.authorization = `Bearer ${token}`;
+  }
 }
+
 const api = new Api({
   baseUrl: "http://localhost:3000",
 
   headers: {
-    authorization:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2MzNWRjNDgzZjdkMDA0NTllNWQzOTYiLCJpYXQiOjE3NDA4NjUzMTMsImV4cCI6MTc0MTQ3MDExM30.Q0JtByIw02hAtOz_9vLshQ8ythx7x-HOMSR5YaiahMA",
+    authorization: "",
     "Content-Type": "application/json; charset=UTF-8",
   },
 });

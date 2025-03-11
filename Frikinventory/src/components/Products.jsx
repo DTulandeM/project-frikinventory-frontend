@@ -1,9 +1,58 @@
 import React from "react";
 import DataTable from "react-data-table-component";
 import searchIcon from "../images/iconSearch.png";
-import { useState } from "react";
-const Products = ({ products }) => {
+import { useState, useEffect } from "react";
+import ProductExpandableRow from "./ProductExpandableRow";
+
+function CustomHeader({ searchTerm, setSearchTerm, addProduct }) {
+  return (
+    <div className="product__header">
+      <h2 className="product__header-title">Products</h2>
+      <div className="product__header-container">
+        <img className="product__search-icon" src={searchIcon} alt="Buscar" />
+        <input
+          className="product__search"
+          type="text"
+          placeholder="Search product, etc"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button onClick={addProduct} className="product__buttonAdd">
+          Add Product
+        </button>
+      </div>
+    </div>
+  );
+}
+
+const formatCurrency = (value) => {
+  return new Intl.NumberFormat("es-ES", {
+    style: "currency",
+    currency: "COP",
+  }).format(value);
+};
+
+const Products = ({
+  products,
+  editProduct,
+  addProduct,
+  onDeleteProduct,
+  isLoading,
+}) => {
   const [expandedRows, setExpandedRows] = useState(null);
+  const [filteredProducts, setFilteredProducts] = useState(products);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    if (!products || products.length === 0) return;
+
+    const filtered = products.filter((product) =>
+      [product.name, product._id].some((field) =>
+        field.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    );
+    setFilteredProducts(filtered);
+  }, [searchTerm, products, isLoading]);
 
   const columns = [
     {
@@ -18,7 +67,7 @@ const Products = ({ products }) => {
     },
     {
       name: "Product ID",
-      selector: (row) => row.productId,
+      selector: (row) => row._id.slice(0, 6),
       sortable: true,
     },
     {
@@ -28,7 +77,7 @@ const Products = ({ products }) => {
     },
     {
       name: "Price",
-      selector: (row) => row.price,
+      selector: (row) => formatCurrency(row.price),
       sortable: true,
     },
     {
@@ -69,127 +118,42 @@ const Products = ({ products }) => {
             className="product__button-edit"
             onClick={(e) => {
               e.stopPropagation();
-              setExpandedRows(
-                expandedRows === row.productId ? null : row.productId
-              );
+              setExpandedRows(expandedRows === row._id ? null : row._id);
             }}
           ></button>
-          <button className="product__button-delete"></button>
+          <button
+            className="product__button-delete"
+            onClick={(e) => {
+              e.stopPropagation();
+              onDeleteProduct(row);
+            }}
+          ></button>
         </div>
       ),
     },
   ];
 
-  function CustomHeader() {
-    const [searchTerm, setSearchTerm] = useState([]);
-    return (
-      <div className="product__header">
-        <h2 className="product__header-title">Products</h2>
-        <div className="product__header-container">
-          <img className="product__search-icon" src={searchIcon} alt="Buscar" />
-          <input
-            className="product__search"
-            type="text"
-            placeholder="Search product, etc"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          {/* Botón para agregar */}
-          <button className="product__buttonAdd">Add Product</button>
-        </div>
-      </div>
-    );
-  }
-  function ExpandedComponent({ data }) {
-    return (
-      <div className="product__expand-row">
-        <div className="product__expand-row-container">
-          <div className="product__expand-row-image">
-            <img
-              src={data.image}
-              alt="product"
-              className="product__image-exp"
-            />
-          </div>
-          <div className="product__expand-row-item">
-            <p className="product__expand-row-title">Product Name</p>
-            <p className="product__expand-row-content">{data.name}</p>
-            <div className="product__expand-row2-container">
-              <div className="product__expand-row-item">
-                <p className="product__expand-row-title">Supplier</p>
-                <p className="product__expand-row-content">Apple</p>
-              </div>
-              <div className="product__expand-row-item">
-                <p className="product__expand-row-title">Supplier</p>
-                <p className="product__expand-row-content">Apple</p>
-              </div>
-            </div>
-            <div className="product__expand-row2-container">
-              <div className="product__expand-row-item">
-                <p className="product__expand-row-title">Supplier</p>
-                <p className="product__expand-row-content">Apple</p>
-              </div>
-              <div className="product__expand-row-item">
-                <p className="product__expand-row-title">Supplier</p>
-                <p className="product__expand-row-content">Apple</p>
-              </div>
-            </div>
-          </div>
-          <div className="product__expand-row-item">
-            <div className="product__expand-row-item">
-              <div className="product__expand-row2-container">
-                <div className="product__expand-row-item">
-                  <p className="product__expand-row-title">Supplier</p>
-                  <p className="product__expand-row-content">Apple</p>
-                </div>
-                <div className="product__expand-row-item">
-                  <p className="product__expand-row-title">Supplier</p>
-                  <p className="product__expand-row-content">Apple</p>
-                </div>
-              </div>
-              <div className="product__expand-row2-container">
-                <div className="product__expand-row-item">
-                  <p className="product__expand-row-title">Supplier</p>
-                  <p className="product__expand-row-content">Apple</p>
-                </div>
-                <div className="product__expand-row-item">
-                  <p className="product__expand-row-title">Supplier</p>
-                  <p className="product__expand-row-content">Apple</p>
-                </div>
-              </div>
-              <div className="product__expand-row2-container">
-                <div className="product__expand-row-item">
-                  <p className="product__expand-row-title">Supplier</p>
-                  <p className="product__expand-row-content">Apple</p>
-                </div>
-                <div className="product__expand-row-item">
-                  <button
-                    className="product__button-save"
-                    onClick={() => setExpandedRows(null)}
-                  >
-                    Guardar
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="product-table">
       <DataTable
         columns={columns}
-        data={products}
+        data={filteredProducts}
         selectableRows
         subHeader
-        subHeaderComponent={<CustomHeader />}
+        subHeaderComponent={
+          <CustomHeader
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            addProduct={addProduct}
+          />
+        }
         expandableRows
-        expandableRowsComponent={ExpandedComponent}
+        expandableRowsComponent={({ data }) => (
+          <ProductExpandableRow data={data} onSave={editProduct} />
+        )}
         expandOnRowClicked={false}
-        expandableRowExpanded={(row) => row.productId === expandedRows}
+        expandableRowExpanded={(row) => row._id === expandedRows}
+        expandOnRowDoubleClicked={true}
         expandableIcon={{
           collapsed: null,
           expanded: null,

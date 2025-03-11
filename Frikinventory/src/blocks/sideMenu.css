@@ -26,6 +26,9 @@
   transform: translateX(-10%);
   transition: 0.4s ease;
 }
+.nav_container {
+  margin-left: 14px;
+}
 
 .navigation li {
   list-style: none;
@@ -78,4 +81,37 @@
 
 .nav_item:hover {
   box-shadow: #ffff00;
+}
+@media (max-width: 1024px) {
+  .nav {
+    max-width: 80px;
+  }
+  .sideMenu__logo {
+    max-width: 60px;
+  }
+  .nav_title {
+    font-size: 8px;
+    margin-left: 10px;
+  }
+  .nav_menu {
+    padding-left: 10px;
+  }
+  .nav_item {
+    font-size: 10px;
+    gap: 4px;
+  }
+  .nav_icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    transform: translateX(-100%);
+  }
+}
+
+.nav--collapsed {
+  transform: translateX(0) !important;
 }

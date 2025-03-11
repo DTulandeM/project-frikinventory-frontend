@@ -10,6 +10,7 @@ import delivericon from "../images/Stack.svg";
 import reporticon from "../images/Report.svg";
 import helpicon from "../images/Question.svg";
 import logouticon from "../images/SignOut.svg";
+import { useNavigate } from "react-router-dom";
 
 const menuData = [
   {
@@ -35,12 +36,20 @@ const menuData = [
     category: "Settings",
     items: [
       { title: "Help", icon: helpicon },
-      { title: "Logout", icon: logouticon },
+      { title: "Logout", icon: logouticon, path: "/logout" },
     ],
   },
 ];
 
-function SideMenu() {
+function SideMenu({ onSignOut }) {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    if (path === "/logout") {
+      onSignOut();
+    }
+  };
+
   return (
     <>
       <section className="sideMenu">
@@ -53,11 +62,15 @@ function SideMenu() {
           />
           <div>
             {menuData.map((category, index) => (
-              <div key={index}>
+              <div className="nav_container" key={index}>
                 <div className="nav_title">{category.category}</div>
                 <ul className="nav_menu">
                   {category.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="nav_item">
+                    <li
+                      key={itemIndex}
+                      className="nav_item"
+                      onClick={() => handleNavigation(item.path)}
+                    >
                       <img
                         className="nav_icon"
                         src={item.icon}

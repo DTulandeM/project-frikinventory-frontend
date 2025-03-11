@@ -3,8 +3,9 @@
   margin: 60px auto 0;
   flex-direction: column;
   align-items: center;
-  max-width: 358px;
+  max-width: 679px;
   width: 100%;
+  background-color: #ffffff;
 }
 
 .home__fieldset {
@@ -16,47 +17,68 @@
 }
 
 .home__title {
-  font-family: "Inter";
+  font-family: "Figtree";
   font-style: normal;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 29px;
-  text-align: center;
-  color: #ffffff;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 34px;
+  color: #000000;
+  margin-bottom: 34px;
 }
+
+.home__input-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
 .home__input {
-  font-family: "Inter";
+  font-family: "figtree";
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 24px;
   line-height: 17px;
-  color: #cccccc;
-  background-color: #000000;
-  max-width: 358px;
+  color: #000000;
+  background-color: #ffffff;
+  max-width: 390px;
   width: 100%;
-  height: 26px;
-  margin: 30px auto 0;
-  border-style: none;
-  border-bottom: 1px solid #fff;
-  padding: 0;
+  height: 58px;
+  margin: 20px auto 0;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding-left: 50px;
+}
+
+.home__input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.home__icon {
+  padding-top: 20px;
 }
 
 .home__button {
   display: block;
-  background: #ffffff;
-  border-radius: 2px;
   cursor: pointer;
-  max-width: 358px;
+  max-width: 183px;
   height: 50px;
   width: 100%;
-  margin: 216px auto 15px;
-  font-family: "Inter";
+  margin: 47px auto 15px;
+  font-family: "figtree";
   font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 28.8px;
   text-align: center;
-  color: #000000;
+  color: #fff;
+  background: #444242;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
 }
 
 .home__button_disabled {
@@ -70,23 +92,24 @@
 
 .home__foot {
   display: block;
-  font-family: "Inter";
+  font-family: "figtree";
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 20px;
+  line-height: 24px;
   text-align: center;
-  color: #ffffff;
+  color: #000;
   margin: 0 auto;
+  margin-bottom: 110px;
 }
 
 .home__link {
-  font-family: "Inter";
+  font-family: "figtree";
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  color: #ffffff;
+  font-size: 20px;
+  line-height: 24px;
+  color: #0c1cab;
   text-align: right;
   text-decoration: none;
   cursor: pointer;
@@ -94,6 +117,95 @@
 
 .home__link:hover {
   opacity: 0.6;
+}
+
+.options-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 27px;
+  width: 100%;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.remember-me input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-custom {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  background-color: #000;
+  border: 1px solid #ddd;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.remember-me input:checked ~ .checkbox-custom:after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  color: #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.forgot-password {
+  color: #000;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.divider {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  line-height: 0.1em;
+  margin: 40px 0 40px;
+}
+
+.divider span {
+  background: #fff;
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+.google-button {
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }
 
 @media screen and (max-width: 320px) {
