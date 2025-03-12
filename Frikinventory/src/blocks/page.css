@@ -6,6 +6,7 @@ body {
   font-family: "Figtree", Arial, Helvetica, sans-serif;
   max-width: 1440px;
   width: 100%;
+  min-height: 100vh;
   box-sizing: border-box;
   background-color: #f3f3f2;
   margin: 0 auto;

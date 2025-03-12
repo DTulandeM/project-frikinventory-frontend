@@ -1,13 +1,14 @@
 .form {
   display: flex;
   position: fixed;
-  top: 195px;
+  top: 85px;
   right: calc(50% - 400px);
   flex-direction: column;
   align-items: center;
   column-gap: 8px;
   margin: 0 auto;
   max-width: 610px;
+  max-height: auto;
 }
 
 .form__title {

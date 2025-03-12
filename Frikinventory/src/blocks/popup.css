@@ -45,7 +45,7 @@
 }
 .popup__button-close {
   position: relative;
-  bottom: 50px;
+  top: -175px;
   left: 720px;
   background-color: rgba(0, 0, 0, 0.01);
   background-image: url("../images/close-icon.svg");
