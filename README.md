@@ -14,3 +14,9 @@ Funcionalidades:
 6. conexión con API
 
 Tecnologias empleadas son react, html, css, gitHub, javaScripts, nginx .
+
+Seguimiento en trello, tambien se encontrara el diseño en figma.
+https://trello.com/b/pXPRKaVh/final-project-tripleten
+
+Repositorio en Github:
+https://github.com/DTulandeM/project-frikinventory-frontend.git
