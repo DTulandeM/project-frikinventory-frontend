@@ -1,8 +1,9 @@
 import React from "react";
 import DataTable from "react-data-table-component";
 import searchIcon from "../images/iconSearch.png";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import ProductExpandableRow from "./ProductExpandableRow";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function CustomHeader({ searchTerm, setSearchTerm, addProduct }) {
   return (
@@ -11,6 +12,7 @@ function CustomHeader({ searchTerm, setSearchTerm, addProduct }) {
       <div className="product__header-container">
         <img className="product__search-icon" src={searchIcon} alt="Buscar" />
         <input
+          name="search_product"
           className="product__search"
           type="text"
           placeholder="Search product, etc"
@@ -42,6 +44,7 @@ const Products = ({
   const [expandedRows, setExpandedRows] = useState(null);
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [searchTerm, setSearchTerm] = useState("");
+  const currentUser = useContext(CurrentUserContext);
 
   useEffect(() => {
     if (!products || products.length === 0) return;
@@ -121,13 +124,17 @@ const Products = ({
               setExpandedRows(expandedRows === row._id ? null : row._id);
             }}
           ></button>
-          <button
-            className="product__button-delete"
-            onClick={(e) => {
-              e.stopPropagation();
-              onDeleteProduct(row);
-            }}
-          ></button>
+          {row.owner._id === currentUser._id ? (
+            <button
+              className="product__button-delete"
+              onClick={(e) => {
+                e.stopPropagation();
+                onDeleteProduct(row);
+              }}
+            ></button>
+          ) : (
+            <button className="product__button-delete" disabled></button>
+          )}
         </div>
       ),
     },

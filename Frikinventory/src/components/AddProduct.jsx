@@ -49,36 +49,47 @@ function AddProductPopup({ isOpen, onClose, onAddProduct, isLoading }) {
     >
       <div className="product__popup-content">
         <div className="product__top-section">
-          <div className="form__input-container popup__image-container">
-            <p className="form__product-title">Imagen del Producto</p>
+          <div className="form__input-floating-container">
             <input
               type="url"
               name="image"
               id="add-product-image"
               value={image || ""}
               onChange={(e) => setImage(e.target.value)}
-              placeholder="URL de la imagen"
+              placeholder=" "
               className="form__input"
               required
             />
+            <label
+              htmlFor="add-product-image"
+              className="form__input-floating-label"
+            >
+              URL de la imagen
+            </label>
             <span
               id="add-product-image-error"
               className="form__error-visible"
             ></span>
           </div>
 
-          <div className="form__input-container popup__name-container">
-            <p className="form__product-title">Nombre del Producto</p>
+          <div className="form__input-floating-container ">
             <input
               type="text"
               name="name"
               id="add-product-name"
+              autoComplete="off"
               value={name || ""}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Nombre del producto"
+              placeholder=" "
               className="form__input"
               required
             />
+            <label
+              htmlFor="add-product-name"
+              className="form__input-floating-label"
+            >
+              Nombre del producto
+            </label>
             <span
               id="add-product-name-error"
               className="form__error-visible"
@@ -88,36 +99,46 @@ function AddProductPopup({ isOpen, onClose, onAddProduct, isLoading }) {
 
         <div className="product__edit-section">
           <div className="form__input-row">
-            <div className="form__input-container form__input-half">
-              <p className="form__product-title">Precio</p>
+            <div className="form__input-floating-container form__input-half">
               <input
                 type="number"
                 name="price"
                 id="add-product-price"
                 value={price || ""}
                 onChange={(e) => setPrice(e.target.value)}
-                placeholder="Precio"
+                placeholder=" "
                 className="form__input"
                 required
               />
+              <label
+                htmlFor="add-product-price"
+                className="form__input-floating-label"
+              >
+                Precio
+              </label>
               <span
                 id="add-product-price-error"
                 className="form__error-visible"
               ></span>
             </div>
 
-            <div className="form__input-container form__input-half">
-              <p className="form__product-title">Cantidad</p>
+            <div className="form__input-floating-container form__input-half">
               <input
                 type="number"
                 name="quantity"
                 id="add-product-quantity"
                 value={quantity || ""}
                 onChange={(e) => setQuantity(e.target.value)}
-                placeholder="Cantidad"
+                placeholder=" "
                 className="form__input"
                 required
               />
+              <label
+                htmlFor="add-product-quantity"
+                className="form__input-floating-label"
+              >
+                Cantidad
+              </label>
               <span
                 id="add-product-quantity-error"
                 className="form__error-visible"
@@ -126,36 +147,46 @@ function AddProductPopup({ isOpen, onClose, onAddProduct, isLoading }) {
           </div>
 
           <div className="form__input-row">
-            <div className="form__input-container form__input-half">
-              <p className="form__product-title">Tipo de Producto</p>
+            <div className="form__input-floating-container form__input-half">
               <input
                 type="text"
                 name="typeOfProduct"
                 id="add-product-typeOfProduct"
                 value={typeOfProduct || ""}
                 onChange={(e) => setTypeOfProduct(e.target.value)}
-                placeholder="Tipo de producto"
+                placeholder=" "
                 className="form__input"
                 required
               />
+              <label
+                htmlFor="add-product-typeOfProduct"
+                className="form__input-floating-label"
+              >
+                Tipo de producto
+              </label>
               <span
                 id="add-product-typeOfProduct-error"
                 className="form__error-visible"
               ></span>
             </div>
 
-            <div className="form__input-container form__input-half">
-              <p className="form__product-title">Costo de Compra</p>
+            <div className="form__input-floating-container form__input-half">
               <input
                 type="text"
                 name="buyCost"
                 id="add-product-buyCost"
                 value={buyCost || ""}
                 onChange={(e) => setBuyCost(e.target.value)}
-                placeholder="Costo de compra"
+                placeholder=" "
                 className="form__input"
                 required
               />
+              <label
+                htmlFor="add-product-buyCost"
+                className="form__input-floating-label"
+              >
+                Costo de compra
+              </label>
               <span
                 id="add-product-buyCost-error"
                 className="form__error-visible"
@@ -163,18 +194,23 @@ function AddProductPopup({ isOpen, onClose, onAddProduct, isLoading }) {
             </div>
           </div>
 
-          <div className="form__input-container">
-            <p className="form__product-title">Descripción</p>
+          <div className="form__input-floating-container">
             <input
               type="text"
               name="articuleRef"
               id="add-product-articuleRef"
               value={articuleRef}
               onChange={(e) => setArticuleRef(e.target.value)}
-              placeholder="Descripción o referencia"
+              placeholder=" "
               className="form__input"
               required
             />
+            <label
+              htmlFor="add-product-articuleRef"
+              className="form__input-floating-label"
+            >
+              Descripción o referencia
+            </label>
             <span
               id="add-product-articuleRef-error"
               className="form__error-visible"
@@ -186,25 +222,32 @@ function AddProductPopup({ isOpen, onClose, onAddProduct, isLoading }) {
         <div className="product__readonly-section">
           <div className="form__input-row">
             <div className="form__input-container form__input-half">
-              <p className="form__product-title">Fecha de creación</p>
               <input
                 type="text"
-                placeholder={new Date().toLocaleDateString()}
+                id="creation-date"
+                placeholder=" "
+                value={new Date().toLocaleDateString()}
                 className="form__input-disabled"
                 disabled
               />
+              <label htmlFor="creation-date" className="form__input-label">
+                Fecha de creación
+              </label>
             </div>
 
             <div className="form__input-container form__input-half">
-              <p className="form__product-title">Creado por</p>
               <input
                 type="text"
+                id="owner"
                 name="owner"
                 value={userName || ""}
-                placeholder="Usuario actual"
+                placeholder=" "
                 className="form__input-disabled"
                 disabled
               />
+              <label htmlFor="owner" className="form__input-label">
+                Creado por
+              </label>
             </div>
           </div>
         </div>

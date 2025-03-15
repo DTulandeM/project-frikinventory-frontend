@@ -60,8 +60,7 @@ function EditUserProfilePopup({ isOpen, onClose, onUpdateUser, isLoading }) {
         </div>
 
         <div className="profile__top-section">
-          <div className="form__input-container">
-            <p className="form__product-title">Imagen de Perfil</p>
+          <div className="form__input-floating-container">
             <input
               type="url"
               name="userImage"
@@ -71,27 +70,42 @@ function EditUserProfilePopup({ isOpen, onClose, onUpdateUser, isLoading }) {
                 setUserImage(e.target.value);
                 setPreviewError(false);
               }}
-              placeholder="URL de la imagen de perfil"
+              placeholder=" "
               className="form__input"
             />
+            <label
+              id="edit-profile-image-label"
+              htmlFor="profile-image"
+              className="form__input-floating-label"
+            >
+              Imagen del perfil
+            </label>
             <span
               id="edit-profile-image-error"
               className="form__error-visible"
             ></span>
           </div>
 
-          <div className="form__input-container">
-            <p className="form__product-title">Nombre</p>
+          <div className="form__input-floating-container">
             <input
+              autoComplete="off"
               type="text"
               name="name"
               id="edit-profile-name"
               value={name || ""}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Tu nombre"
+              placeholder=" "
               className="form__input"
               required
             />
+            <label
+              id="edit-profile-name-label"
+              name="profile-name"
+              htmlFor="profile-name"
+              className="form__input-floating-label"
+            >
+              Nombre del perfil
+            </label>
             <span
               id="edit-profile-name-error"
               className="form__error-visible"

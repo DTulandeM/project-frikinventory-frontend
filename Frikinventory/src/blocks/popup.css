@@ -125,6 +125,7 @@
   flex-direction: column;
   width: 100%;
   margin-bottom: 10px;
+  gap: 20px;
 }
 
 .product__edit-section {
@@ -137,15 +138,6 @@
   margin: 10px auto 20px;
   background-color: #f9f9f9;
   border-radius: 8px;
-}
-
-.popup__image-container,
-.popup__name-container {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
 }
 
 @media screen and (max-width: 550px) {

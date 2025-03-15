@@ -59,6 +59,12 @@
   border-radius: 6px;
   cursor: pointer;
 }
+
+.product__button-delete:disabled {
+  opacity: 0.5;
+  cursor: none;
+}
+
 .product__header {
   display: flex;
   flex-direction: row;
