@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import searchIcon from "../images/iconSearch.png";
 import bellIcon from "../images/bell.svg";
 import { useLocation } from "react-router-dom";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Header({ isLoggedIn, userName, userImage, typeUser, onEditProfile }) {
+function Header({ isLoggedIn, onEditProfile }) {
+  const currentUser = useContext(CurrentUserContext);
   const location = useLocation();
   let pageTitle;
 
@@ -43,17 +45,19 @@ function Header({ isLoggedIn, userName, userImage, typeUser, onEditProfile }) {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
+            <div className="header__user-profile">
+              <img
+                src={currentUser.userImage || "/path/to/default-avatar.png"}
+                alt="User profile"
+                className="header__user-image"
+              />
+            </div>
             <div className="header__user-info">
-              <div className="header__user-profile">
-                <img
-                  src={userImage || "/path/to/default-avatar.png"}
-                  alt="User profile"
-                  className="header__user-image"
-                />
-                <span className="header__user-name">{userName}</span>
-              </div>
-              {typeUser && (
-                <span className="header__user-type">{typeUser}</span>
+              <span className="header__user-name">{currentUser.name}</span>
+              {currentUser.typeUser && (
+                <span className="header__user-type">
+                  {currentUser.typeUser}
+                </span>
               )}
             </div>
 

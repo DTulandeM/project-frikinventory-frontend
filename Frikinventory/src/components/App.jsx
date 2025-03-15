@@ -22,9 +22,6 @@ function App() {
   const [products, setProducts] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState([]);
-  const [userImage, setUserImage] = useState([]);
-  const [typeUser, setTypeUser] = useState([]);
   const [isRegistedIn, setIsRegistedIn] = useState(false);
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -68,23 +65,20 @@ function App() {
         .then((res) => {
           if (res) {
             setIsLoggedIn(true);
-            api.getUserInfo().then((result) => {
-              setCurrentUser(result);
-              setUserName(result.name);
-              setUserImage(result.userImage);
-              setTypeUser(result.typeUser);
-            });
-            api.getProducts().then((result) => {
-              setProducts(result);
-            });
+            return Promise.all([api.getUserInfo(), api.getProducts()]);
+          } else {
+            throw new Error("Token inválido");
           }
+        })
+        .then(([userInfo, products]) => {
+          setCurrentUser(userInfo);
+          setProducts(products);
         })
         .catch((err) => {
           setIsLoggedIn(false);
         });
     }
-  }, []);
-
+  }, [isLoggedIn]);
   const updateStockCards = useCallback((products, timeFrame = "last week") => {
     const now = new Date();
     let filteredProducts = [];
@@ -281,7 +275,7 @@ function App() {
         articuleRef,
       })
       .then((newProduct) => {
-        setCards([newProduct, ...products]);
+        setProducts([newProduct, ...products]);
       })
       .finally(() => {
         setIsLoading(false);
@@ -378,9 +372,6 @@ function App() {
                 <>
                   <Header
                     isLoggedIn={isLoggedIn}
-                    userImage={userImage}
-                    userName={userName}
-                    typeUser={typeUser}
                     onEditProfile={handleEditProfileClick}
                   />
                   <SideMenu onSignOut={onSignOut} />
@@ -396,7 +387,7 @@ function App() {
                   <InfoTooltip
                     isOpen={isInfoTooltipOpen}
                     onClose={closeAllPopups}
-                    isLoggedIn={isLoading}
+                    isLoggedIn={isLoggedIn}
                   />
                   <AddproductPopup
                     isOpen={isAddProductOpen}

@@ -101,8 +101,8 @@ class Api {
 }
 
 const api = new Api({
-  // baseUrl: "http://localhost:3000",
-  baseUrl: "https://api.friki.mooo.com",
+  baseUrl: "http://localhost:3000",
+  // baseUrl: "https://api.friki.mooo.com",
 
   headers: {
     authorization: "",

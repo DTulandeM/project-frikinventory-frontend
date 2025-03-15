@@ -17,7 +17,6 @@
 }
 
 .home__title {
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
@@ -34,7 +33,6 @@
 }
 
 .home__input {
-  font-family: "figtree";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -69,7 +67,6 @@
   height: 50px;
   width: 100%;
   margin: 47px auto 15px;
-  font-family: "figtree";
   font-style: normal;
   font-weight: 800;
   font-size: 24px;
@@ -92,7 +89,6 @@
 
 .home__foot {
   display: block;
-  font-family: "figtree";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -104,7 +100,6 @@
 }
 
 .home__link {
-  font-family: "figtree";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;

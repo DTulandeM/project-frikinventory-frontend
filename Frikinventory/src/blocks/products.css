@@ -11,7 +11,6 @@
 .rdt_TableHeader {
   max-width: 1200px;
   margin-bottom: 0;
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -79,7 +78,6 @@
   gap: 10px;
 }
 .product__header-title {
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -98,7 +96,6 @@
   border-radius: 12px;
   border-color: #ffffff;
   border-style: none;
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -109,7 +106,7 @@
 
 .product__search-icon {
   position: absolute;
-  right: 290px;
+  left: 3%;
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
@@ -124,7 +121,6 @@
   height: 30px;
   background: #ffd200;
   border-radius: 6px;
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -146,7 +142,6 @@
   height: 23px;
   background: #fff2f2;
   border-radius: 8px;
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 600;
   font-size: 10px;
@@ -161,7 +156,6 @@
   height: 23px;
   background: #f7fcd2;
   border-radius: 8px;
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 600;
   font-size: 10px;
@@ -176,7 +170,6 @@
   height: 23px;
   background: #fffcea;
   border-radius: 8px;
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 600;
   font-size: 10px;
@@ -240,7 +233,6 @@
   padding: 6px 0 6px 0;
 }
 .product__expand-row-title {
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -251,7 +243,6 @@
   margin: 0;
 }
 .product__expand-row-content-input {
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -290,7 +281,6 @@
   height: 46px;
   background: #ffd200;
   border-radius: 6px;
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -317,7 +307,6 @@
 
   .product__search {
     max-width: 180px;
-    padding: 8px;
   }
 
   .product__buttonAdd {
@@ -348,7 +337,6 @@
 
   .product__search {
     max-width: 100%;
-    padding: 6px;
   }
 
   .product__button-container {

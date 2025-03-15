@@ -22,7 +22,6 @@
 }
 
 .card__metric {
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 600;
   font-size: 26px;
@@ -40,7 +39,6 @@
 }
 
 .card__title {
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -92,7 +90,6 @@
 
 .card__dropdown-item {
   padding: 8px 16px;
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
@@ -101,7 +98,7 @@
   border: none;
   color: #080804;
   cursor: pointer;
-  /* transition: background-color 0.2s; */
+  transition: background-color 0.2s;
 }
 
 .card__dropdown-item:hover {
@@ -129,7 +126,6 @@
   background-color: #f7fcd2;
   padding: 4px 8px;
   border-radius: 6px;
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 500;
   font-size: 8px;
@@ -171,11 +167,11 @@
 }
 
 .card__time-frame {
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 400;
-  font-size: 10px;
+  font-size: 9px;
   line-height: 130%;
+  width: 100%;
   text-align: center;
   color: #a6a6a5;
 }

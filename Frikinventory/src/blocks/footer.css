@@ -10,7 +10,6 @@
 }
 .footer__copyright {
   color: #2d2d2d;
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
@@ -28,7 +27,6 @@
 
 .footer__policy {
   color: #a6a6a5;
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -60,7 +58,7 @@
   }
 
   .footer__policy-container {
-    max-width: 350px;
+    max-width: 450px;
     gap: 12px;
   }
 
@@ -76,7 +74,7 @@
 
 @media screen and (max-width: 768px) {
   .footer {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     text-align: center;
     height: auto;

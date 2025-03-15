@@ -6,6 +6,7 @@
   padding: 0px;
   justify-content: space-between;
   max-width: 1200px;
+  width: 100%;
 }
 .header__container {
   position: relative;
@@ -18,7 +19,6 @@
   gap: 20px;
 }
 .header__title {
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 600;
   font-size: 26px;
@@ -38,7 +38,6 @@
   border-radius: 12px;
   border-color: #ffffff;
   border-style: none;
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -49,7 +48,7 @@
 
 .header__search-icon {
   position: absolute;
-  left: 10px;
+  left: 3%;
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
@@ -78,7 +77,6 @@
 }
 
 .header__profile-name {
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -90,7 +88,6 @@
 }
 
 .header__profile-type {
-  font-family: "Figtree";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -135,6 +132,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  gap: 10px;
   padding: 5px 10px;
   border-radius: 6px;
   transition: background-color 0.3s ease;
@@ -147,7 +145,7 @@
 .header__user-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .header__user-profile {
@@ -165,7 +163,6 @@
 }
 
 .header__user-name {
-  font-family: "Figtree", sans-serif;
   font-weight: 600;
   font-size: 14px;
 }
@@ -196,7 +193,6 @@
   text-align: left;
   border: none;
   background: none;
-  font-family: "Figtree", sans-serif;
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.2s ease;
